@@ -6,7 +6,7 @@ using System.Dynamic;
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal sealed class PartialResponsinator
+    public sealed class PartialResponsinator
     {
         private readonly List<FieldSelectorTreeNode> _partialSelectNodes;
         private readonly IPropertyValueGetterFactory _propertyGetterFactory;
@@ -53,8 +53,8 @@ namespace ServiceStack.PartialResponse.ServiceModel
             }
 
             var asEnumerable = responseNode as IEnumerable;
-
-            if (asEnumerable.IsGenericEnumerable())
+            
+            if (asEnumerable.IsGenericEnumerable() || asEnumerable.IsNotPrimitiveArray())
             {
                 return TraverseEnumerableObject(asEnumerable, selectorNodes, parentSelectorPath);
             }
@@ -110,8 +110,10 @@ namespace ServiceStack.PartialResponse.ServiceModel
             IPropertyValueGetter currentProperty =
                 _propertyInfoCache.GetOrAdd(
                     currentPathSelector,
-                    key => _propertyGetterFactory.CreatePropertyValueGetter(responseNode, selectorNode.MemberName)
-                    );
+                    key =>
+                    {
+                        return _propertyGetterFactory.CreatePropertyValueGetter(responseNode, selectorNode.MemberName);
+                    });
 
             if (currentProperty == null)
             {

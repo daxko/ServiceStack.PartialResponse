@@ -1,10 +1,10 @@
-﻿using ServiceStack.ServiceHost;
+﻿using ServiceStack.Web;
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal static class FieldsRetriever
+    public static class FieldsRetriever
     {
-        public static string GetFields(IRequestContext requestContext, IPartialResponseConfig partialResponseConfig)
+        public static string GetFields(IRequest requestContext, IPartialResponseConfig partialResponseConfig)
         {
             switch (partialResponseConfig.FieldResolutionMethod)
             {
@@ -41,25 +41,16 @@ namespace ServiceStack.PartialResponse.ServiceModel
             }
         }
 
-        public static string FieldsFromQueryString(IRequestContext requestContext, string fieldsQueryStringName)
+        public static string FieldsFromQueryString(IRequest requestContext, string fieldsQueryStringName)
         {
-            var httpRequest = requestContext.Get<IHttpRequest>();
-
-            if (httpRequest == null)
-            {
-                return string.Empty;
-            }
-            if (httpRequest.QueryString == null)
-            {
-                return string.Empty;
-            }
-
-            return httpRequest.QueryString.Get(fieldsQueryStringName);
+            if (requestContext.QueryString == null) return string.Empty;
+            return requestContext.QueryString[fieldsQueryStringName] ?? string.Empty;
         }
 
-        public static string FieldsFromHeader(IRequestContext requestContext, string fieldsHeaderName)
+        public static string FieldsFromHeader(IRequest requestContext, string fieldsHeaderName)
         {
-            return requestContext.GetHeader(fieldsHeaderName) ?? string.Empty;
+            if (requestContext.Headers == null) return string.Empty;
+            return requestContext.Headers[fieldsHeaderName] ?? string.Empty;
         }
     }
 }

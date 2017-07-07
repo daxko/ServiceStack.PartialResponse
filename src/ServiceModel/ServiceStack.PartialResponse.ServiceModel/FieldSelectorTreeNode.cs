@@ -2,7 +2,7 @@
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal sealed class FieldSelectorTreeNode
+    public sealed class FieldSelectorTreeNode
     {
         public FieldSelectorTreeNode(string memberName)
         {

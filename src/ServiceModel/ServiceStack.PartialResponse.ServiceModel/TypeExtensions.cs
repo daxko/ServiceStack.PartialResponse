@@ -3,7 +3,7 @@ using System.Dynamic;
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal static class TypeExtensions
+    public static class TypeExtensions
     {
         public static bool IsDynamic(this Type type)
         {

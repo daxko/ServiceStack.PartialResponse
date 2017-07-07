@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal class PropertyInfoPropertyValueGetter : IPropertyValueGetter
+    public class PropertyInfoPropertyValueGetter : IPropertyValueGetter
     {
         private readonly PropertyInfo _propertyInfo;
 

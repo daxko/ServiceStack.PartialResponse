@@ -1,6 +1,6 @@
 ﻿namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal interface IPropertyValueGetterFactory
+    public interface IPropertyValueGetterFactory
     {
         IPropertyValueGetter CreatePropertyValueGetter(object instance, string propertyName);
     }

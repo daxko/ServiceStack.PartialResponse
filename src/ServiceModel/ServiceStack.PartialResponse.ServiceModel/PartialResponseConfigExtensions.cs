@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal static class PartialResponseConfigExtensions
+    public static class PartialResponseConfigExtensions
     {
         public static bool IsSupportedContentType(this IPartialResponseConfig partialResponseConfig, string contentType)
         {

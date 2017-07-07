@@ -1,6 +1,6 @@
 ﻿namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal static class FieldSelectorConstants
+    public static class FieldSelectorConstants
     {
         public const char MultipleFieldSeparator = ',';
         public const char NestedFieldSelector = '/';

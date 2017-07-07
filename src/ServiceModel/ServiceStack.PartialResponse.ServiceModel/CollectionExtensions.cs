@@ -2,7 +2,7 @@
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal static class CollectionExtensions
+    public static class CollectionExtensions
     {
         public static bool IsEmpty<T>(this ICollection<T> collection)
         {

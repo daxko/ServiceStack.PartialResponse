@@ -4,7 +4,7 @@ using ImpromptuInterface;
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal class DynamicPropertyValueGetter : IPropertyValueGetter
+    public class DynamicPropertyValueGetter : IPropertyValueGetter
     {
         public static IPropertyValueGetter CreateDynamicObjectValueGetter(dynamic instance, string propertyName)
         {

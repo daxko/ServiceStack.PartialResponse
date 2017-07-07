@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal static class FieldSelectorParser
+    public static class FieldSelectorParser
     {
         public static List<FieldSelectorTreeNode> Expand(string partialResponseFields)
         {

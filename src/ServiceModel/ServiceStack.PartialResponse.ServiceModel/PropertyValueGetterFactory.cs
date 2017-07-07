@@ -2,7 +2,7 @@
 
 namespace ServiceStack.PartialResponse.ServiceModel
 {
-    internal class PropertyValueGetterFactory : IPropertyValueGetterFactory
+    public class PropertyValueGetterFactory : IPropertyValueGetterFactory
     {
         public IPropertyValueGetter CreatePropertyValueGetter(object instance, string propertyName)
         {
