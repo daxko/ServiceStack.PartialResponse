@@ -94,7 +94,7 @@ Full Response min/max/avg 18ms/383ms/25.624ms
 
 - Publish Code for Client Side support. I have working strongly typed implementation (using expression trees) but it needs to be cleaned up for release.
 
-##[Release Notes](ReleaseNotes.md)
+## [Release Notes](ReleaseNotes.md)
 ![CodeBetter CI](http://www.jetbrains.com/img/banners/Codebetter.png)
 
 Special Thanks to [JetBrains](http://www.jetbrains.com/teamcity) and [CodeBetter](http://codebetter.com/codebetter-ci/) for hosting this project!
