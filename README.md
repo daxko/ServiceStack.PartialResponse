@@ -10,7 +10,7 @@ ServiceStack.PartialResponse.ServiceModel
 
 This is implemented as an `IRequestContext` extension. It can easily be incorporated into a ServiceStack plugin as part of the final processing of your response.
 
-##Providing Field Selectors
+## Providing Field Selectors
 Field Selectors can be passed using the header or query string. By default field selectors are combined form both. Duplicate field selectors are reduced. The field selector is applied to all entries in a list if the selector refers to a list. 
 
 | Method | Example |
@@ -20,7 +20,7 @@ Field Selectors can be passed using the header or query string. By default field
 
 If field selectors are passed in the query string, make sure it is properly encoded.
 
-##Field Selector Reserved Characters
+## Field Selector Reserved Characters
 | Character | Meaning |
 |:--:|:--|
 | `,`  | Separates multiple field selectors |
@@ -32,7 +32,7 @@ Currently `*` is not supported.
 
 **Note:** All field selector reserved characters may be nested.
 
-##Field Selector Examples
+## Field Selector Examples
 
 **Example:** `person(name(first,last),address(zip,street)),person/salary,link(url,description/short)`
 
@@ -44,7 +44,7 @@ Currently `*` is not supported.
 
 **Explanation:** `people` refers to a list. This will select the first name of all people in the list.
 
-##Code Examples
+## Code Examples
 
 ```c#
 public object Get(MyRequestDto request)
@@ -62,7 +62,7 @@ public object Get(MyRequestDto request)
 }
 ```
 
-##Basic Benchmark
+## Basic Benchmark
 
 The DTO used contains 32 properties. The response is a list of 250 of these DTOs. The partial response only selects one integer property.
 
@@ -78,7 +78,7 @@ Full Response min/max/avg 18ms/383ms/25.624ms
 ===================================
 ```
 
-##Using the Code
+## Using the Code
 
 * [Install the NuGet Package](https://nuget.org/packages/ServiceStack.PartialResponse.ServiceModel)
 * [NuGet Packages from Latest Successful Build](http://teamcity.codebetter.com/viewLog.html?buildId=lastSuccessful&buildTypeId=bt1037&tab=artifacts)
@@ -90,7 +90,7 @@ Full Response min/max/avg 18ms/383ms/25.624ms
   * Powershell 2.0
 
 
-##ToDo
+## ToDo
 
 - Publish Code for Client Side support. I have working strongly typed implementation (using expression trees) but it needs to be cleaned up for release.
 
